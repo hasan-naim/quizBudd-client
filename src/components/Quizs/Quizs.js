@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import Correct from "../Correct/Correct";
 import InCorrect from "../InCorrect/InCorrect";
 import QuizCart from "../QuizCart/QuizCart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Quizs() {
   const [correct, setCorrect] = useState(0);
   const [inCorrect, setInCorrect] = useState(0);
@@ -27,16 +29,49 @@ function Quizs() {
     const isCorrect = correctAnswers.find((elem) => elem === text);
     const isSelected = Object.values(selected).includes(text);
     const correctInclude = correctAnswers.includes(selected[key]);
+    if (isCorrect) {
+      toast.success("Correct!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast.error("Incorrect!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
     if (isCorrect && isSelected !== true) {
       setCorrect((prev) => prev + 1);
       console.log(true);
     } else if (correctInclude === true && !isCorrect) {
       console.log("minus");
       setCorrect((prev) => prev - 1);
-    } else {
-      setInCorrect((prev) => prev + 1);
-      console.log(false);
     }
+  };
+
+  const handleSee = (correctAnswer) => {
+    toast.success(`${correctAnswer}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
@@ -45,20 +80,24 @@ function Quizs() {
         {name}
       </h1>
       <div className="grid lg:grid-cols-2 lg:gap-x-8 gap-y-8">
-        {questions.map(({ question, options, id }, quesIndex) => {
-          return (
-            <QuizCart
-              options={options}
-              question={question}
-              id={id}
-              key={id}
-              handleCliked={handleCliked}
-            ></QuizCart>
-          );
-        })}
+        {questions.map(
+          ({ question, options, id, correctAnswer }, quesIndex) => {
+            return (
+              <QuizCart
+                handleSee={handleSee}
+                correctAnswer={correctAnswer}
+                options={options}
+                question={question}
+                id={id}
+                key={id}
+                handleCliked={handleCliked}
+              ></QuizCart>
+            );
+          }
+        )}
       </div>
       <Correct correct={correct}></Correct>
-      <InCorrect inCorrect={inCorrect} />
+      <ToastContainer />
     </div>
   );
 }
