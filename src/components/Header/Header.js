@@ -19,39 +19,44 @@ function Header() {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="duration-1000">
-            <Navbar.Link>
-              <NavLink to={"/"}>
-                {({ isActive }) => {
-                  return (
-                    <span className={`${isActive ? "text-slate-200" : ""}`}>
-                      Home
-                    </span>
-                  );
-                }}
-              </NavLink>
-            </Navbar.Link>
-            <Navbar.Link>
-              <NavLink to={"/statistics"}>
-                {({ isActive }) => {
-                  return (
-                    <span className={`${isActive ? "text-slate-200" : ""}`}>
-                      Statistics
-                    </span>
-                  );
-                }}
-              </NavLink>
-            </Navbar.Link>
-            <Navbar.Link>
-              <NavLink to={"/blog"}>
-                {({ isActive }) => {
-                  return (
-                    <span className={`${isActive ? "text-slate-200" : ""}`}>
-                      Blog
-                    </span>
-                  );
-                }}
-              </NavLink>
-            </Navbar.Link>
+            <NavLink
+              to={"/"}
+              className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100  text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+            >
+              {({ isActive }) => {
+                return (
+                  <span className={`${isActive ? "text-slate-200" : ""}`}>
+                    Home
+                  </span>
+                );
+              }}
+            </NavLink>
+
+            <NavLink
+              to={"/statistics"}
+              className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100  text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+            >
+              {({ isActive }) => {
+                return (
+                  <span className={`${isActive ? "text-slate-200" : ""}`}>
+                    Statistics
+                  </span>
+                );
+              }}
+            </NavLink>
+
+            <NavLink
+              to={"/blog"}
+              className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100  text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+            >
+              {({ isActive }) => {
+                return (
+                  <span className={`${isActive ? "text-slate-200" : ""}`}>
+                    Blog
+                  </span>
+                );
+              }}
+            </NavLink>
           </Navbar.Collapse>
         </Navbar>
       </div>
