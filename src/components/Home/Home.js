@@ -5,7 +5,6 @@ import QuizList from "../QuizList/QuizList";
 
 function Home() {
   const { data } = useLoaderData();
-  console.log(data);
   return (
     <div>
       <Hero></Hero>

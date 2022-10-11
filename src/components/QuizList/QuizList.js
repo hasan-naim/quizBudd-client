@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ListCart from "../ListCart/ListCart";
 
 function QuizList({ data }) {

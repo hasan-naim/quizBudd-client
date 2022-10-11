@@ -19,7 +19,8 @@ function App() {
         },
         {
           path: "/quiz/:id",
-          loader: ({ params }) => fetch(`${params.id}`),
+          loader: ({ params }) =>
+            fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`),
           element: <Quizs></Quizs>,
         },
         {

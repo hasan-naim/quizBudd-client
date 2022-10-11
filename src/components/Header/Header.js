@@ -1,6 +1,7 @@
 import { Navbar } from "flowbite-react";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../../Logo";
 
 function Header() {
   return (
@@ -8,11 +9,14 @@ function Header() {
       <div className="container">
         <Navbar fluid={true} rounded={true} className="duration-1000">
           <Navbar.Brand>
-            <img
+            {/* <img
               src="assets/logo/logo.svg"
               className="mr-3 h-6 sm:h-9"
               alt="QuizBudd logo"
-            />
+            /> */}
+            <div className="mr-2">
+              <Logo></Logo>
+            </div>
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               QuizBudd
             </span>
