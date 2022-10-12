@@ -15,9 +15,15 @@ function Quizs() {
   useEffect(() => {
     const correctAnswer = questions.map((obj) => obj.correctAnswer);
     setCorrectAnswers([...correctAnswers, ...correctAnswer]);
-    console.log(Object.values(selected));
-  }, [questions, selected]);
+  }, [questions]);
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+
+      behavior: "smooth",
+    });
+  }, []);
   const handleCliked = async (text, key) => {
     const obj = {
       ...selected,
