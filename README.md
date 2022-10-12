@@ -29,4 +29,4 @@ This is a quiz app. Here you can give quiz and test your skills. It is made with
 
 ### [visit this website](https://quizbudd.netlify.app/)
 
-[![](/assets/page.png)](https://quizbudd.netlify.app/)
+[![](/public/assets/page.png)](https://quizbudd.netlify.app/)
